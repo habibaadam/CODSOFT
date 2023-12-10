@@ -38,6 +38,19 @@ class To_Do:
                               width=20, font=("Helvetica", 15, "bold"))
         self.text.place(x=10, y=100)
 
+
+        """Creating Buttons"""
+        self.add_button = kint.Button(text="Tap To Add", font="Helvetica 25 bold",
+                                      command=self.add_task, width=9,bd=5,
+                                      fg="blue", bg="black")
+        self.add_button.place(x=20, y=140)
+
+        self.delete_button = kint.Button(text="Delete Task", font="Helvetica 25 bold",
+                                      command=self.delete_task, width=9,bd=5,
+                                      fg="blue", bg="black")
+        self.delete_button.place(x=20, y=180)
+
+
     def add_task(self):
         """Adding Tasks For To-Do-List, and saving it to a file"""
         data = self.text.get(1.0, kint.END)
@@ -69,7 +82,7 @@ class To_Do:
             self.all_tasks.insert(kint.END, read_lines)
             file.close()
 
-        
+
 
 """Creating my window"""
 def interface():

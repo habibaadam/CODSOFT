@@ -57,30 +57,32 @@ class To_Do:
         self.all_tasks.insert(kint.END, data)
         with open("data.txt", "a") as file:
             file.write(data)
-            file.seek()
-            file.close()
+            file.seek(0)
         self.text.delete(1.0, kint.END)
 
     def delete_task(self):
         """Deleting Tasks From To-Do-List"""
         task_selected = self.all_tasks.curselection()
         check = self.all_tasks.get(task_selected)
-        with open("data.txt", "r") as file:
+        with open("data.txt", "r+") as file:
             new_file = file.readlines()
             file.seek(0)
-            for line in new_file:
-                if line != check:
-                    file.write(line)
             file.truncate()
+
+            for line in new_file:
+                if check.strip() != line.strip():
+                    file.write(line)
         self.all_tasks.delete(task_selected)
 
+
         """Reading Tasks From File to ALL_TASKS FIELD"""
+        self.all_tasks.delete(0, kint.END)
         with open("data.txt", "r") as file:
             each_line = file.readlines()
             for h in each_line:
-                read_lines = h.split()
-            self.all_tasks.insert(kint.END, read_lines)
-            file.close()
+                read_lines = h.strip()
+                self.all_tasks.insert(kint.END, read_lines)
+
 
 
 

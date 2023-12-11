@@ -7,9 +7,10 @@ class To_Do:
     """Defining Class For To-Do-App"""
     def __init__(self, window):
         self.window = window
-        self.window.title("To-Do-List")
+        self.window.title("To-Do-App")
         self.window.geometry("650x410+300+150")
-        self.window.resizable(True, False)
+        self.window.resizable(False, False)
+        self.window.config(bg="black")
 
         self.label = kint.Label(
             self.window, text="To-Do-List",
@@ -18,7 +19,7 @@ class To_Do:
         self.label.pack(side="top", fill=kint.BOTH)
 
         self.label2 = kint.Label(
-            self.window, text="Add Task",
+            self.window, text="Type To-Dos",
             font=("Helvetica", 15, "bold"),
             fg="white", bg="blue", width=10, bd=5)
         self.label2.place(x=40, y=54)
@@ -39,7 +40,12 @@ class To_Do:
         self.text.place(x=10, y=100)
 
 
-        """Creating Buttons"""
+        """Creating Buttons
+        1. Add Task Button
+        2. Delete Task Button
+        3. Mark Task Button
+
+        """
         self.add_button = kint.Button(text="Tap To Add", font="Helvetica 25 bold",
                                       command=self.add_task, width=9,bd=5,
                                       fg="blue", bg="black")
@@ -50,13 +56,21 @@ class To_Do:
                                       fg="blue", bg="black")
         self.delete_button.place(x=20, y=180)
 
+        self.mark_button = kint.Button(text="Mark Task", font="Helvetica 25 bold",
+                                        command=self.mark_completed, width=9,bd=5,
+                                        fg="blue", bg="black")
+        self.mark_button.place(x=20, y=220)
+
+
 
     def add_task(self):
         """Adding Tasks For To-Do-List, and saving it to a file"""
         data = self.text.get(1.0, kint.END)
-        self.all_tasks.insert(kint.END, data)
+        """Adding bullet points to the tasks"""
+        formatted_data = f"• {data.strip()}\n"
+        self.all_tasks.insert(kint.END,formatted_data)
         with open("data.txt", "a") as file:
-            file.write(data)
+            file.write(formatted_data)
             file.seek(0)
         self.text.delete(1.0, kint.END)
 
@@ -83,6 +97,24 @@ class To_Do:
                 read_lines = h.strip()
                 self.all_tasks.insert(kint.END, read_lines)
 
+    def mark_completed(self):
+        """Marking Tasks Completed"""
+        select = self.all_tasks.curselection()
+        if select:
+            text_of_task = self.all_tasks.get(select)
+            completed_task = f"✅ {text_of_task}"
+            self.all_tasks.delete(select)
+            self.all_tasks.insert(select, completed_task)
+
+            with open("data.txt", "r+") as file:
+                new_file = file.readlines()
+                file.seek(0)
+                file.truncate()
+
+                for line in new_file:
+                    if text_of_task.strip() != line.strip():
+                        file.write(line)
+                file.write(completed_task)
 
 
 

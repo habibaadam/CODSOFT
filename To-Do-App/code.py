@@ -2,6 +2,8 @@
 """CodeBase for To-Do-App(GUI)"""
 import tkinter as kint
 import tkinter.messagebox
+from tkinter import ttk
+import sys
 
 class To_Do:
     """Defining Class For To-Do-App"""
@@ -39,6 +41,23 @@ class To_Do:
                               width=20, font=("Helvetica", 15, "bold"))
         self.text.place(x=10, y=100)
 
+        self.label_feelings = kint.Label(
+            self.window, text="How are you feeling?",
+            font=("Helvetica", 15, "bold"),
+            fg="white", bg="blue", width=38, height="3", bd=4
+        )
+        self.label_feelings.place(x=2, y=270)
+
+        self.selected_feeling = kint.StringVar()
+
+        # Create a dropdown menu for feelings
+        self.feelings_menu = ttk.Combobox(
+            self.window, textvariable=self.selected_feeling,
+            values=["Normal😊", "Sad😢", "Annoyed😠", "Cool😎", "Sleepy😴", "😜"],  # Add more emojis as needed
+            font=("Helvetica", 15, "bold"), width=20
+        )
+        self.feelings_menu.place(x=1, y=350)
+        self.feelings_menu.set("Normal😊" )
 
         """Creating Buttons
         1. Add Task Button
@@ -61,6 +80,10 @@ class To_Do:
                                         fg="blue", bg="black")
         self.mark_button.place(x=20, y=220)
 
+        self.exit_button = kint.Button(text="Exit", font="Helvetica 25 bold",
+                                       command=self.exit_app, width=3,bd=5,
+                                       fg="blue", bg="white")
+        self.exit_button.place(x=275, y=370)
 
 
     def add_task(self):
@@ -116,6 +139,9 @@ class To_Do:
                         file.write(line)
                 file.write(completed_task)
 
+    def exit_app(self):
+            """Method to exit the app"""
+            sys.exit(0)
 
 
 """Creating my window"""

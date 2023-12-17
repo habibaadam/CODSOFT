@@ -50,10 +50,10 @@ class To_Do:
 
         self.selected_feeling = kint.StringVar()
 
-        # Create a dropdown menu for feelings
+        # dropdown menu for feelings
         self.feelings_menu = ttk.Combobox(
             self.window, textvariable=self.selected_feeling,
-            values=["Normal😊", "Sad😢", "Annoyed😠", "Cool😎", "Sleepy😴", "😜"],  # Add more emojis as needed
+            values=["Normal😊", "Sad😢", "Annoyed😠", "Cool😎", "Sleepy😴", "Hyped😜"],
             font=("Helvetica", 15, "bold"), width=20
         )
         self.feelings_menu.place(x=1, y=350)

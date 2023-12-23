@@ -49,6 +49,12 @@ while True:
         """
 
     u_choice = int(input("Enter your choice: "))
+    try:
+        u_choice_err = int(u_choice)
+    except ValueError:
+        print("Please enter a number between 1 and 3")
+        continue
+
     computers_choice = random.randint(1, 3)
     """Tie Instances"""
     if u_choice == 1 and computers_choice == 1:

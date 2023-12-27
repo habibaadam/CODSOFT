@@ -1,2 +1,6 @@
 ✅ • Buy groceries
 ✅ • Wake Up
+• Buy tomatoes
+✅ • Cook
+✅ • Jump
+✅ • Clean

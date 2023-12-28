@@ -54,9 +54,8 @@
 ***************************************************************************************
 ## [Contact-Book](./Contact-Book)
 
-
-
 ![Screenshot 1](./images/image1.jpeg)
+
 
 ![Screenshot 2](./images/image2.jpeg)
 
@@ -65,3 +64,17 @@
 ![Screenshot 4](./images/image4.jpeg)
 
 ![Screenshot 5](./images/image5.jpeg)
+
+### Functionality Overview
+
+```bash
+
+-  Contact book app created entire with python tkinter which stores phone numbers, emails and names
+-  Allows users to save contact details quickly
+-  Displays a treeview of all contacts existing
+-  Allows user to delete any contact selected
+-  Contact details can be updtáted and old details deleted
+-  Search bar and box implemented for finding contacts easily in case the list is long
+-  A clear button to delete entry from entry box after saving or updating of details
+-  An exit button to gracefully exit app
+```

@@ -5,7 +5,7 @@
 
 ### Functionality Overview
 ```bash
-- Alloww users to add tasks through the entry column
+- Allows users to add tasks through the entry column
 - All tasks can be seen on the listbox
 - Users can select tasks completed by choosing a task and tapping on mark button
 - Option to delete a task is available after completion
@@ -39,12 +39,19 @@
 -  User plays up against the computer as an opponent
 -  User Prompt between Rock, Paper Or Scissors(1, 2 or 3)
 -  Score tracking system in plce to track user and computer's scores
-   after each round(playing 3 times= 1 round)
+-  after each round(playing 3 times= 1 round)
 -  Option/prompt to continue another round or end the game is implemented
 ```
 ***************************************************************************************
+
 ## [Password-Gen](./Password-Generator)
 [![5-F9-F1-B54-8048-4-BC0-9972-42-FD8-D16-CE62-4-5005-c.jpg](https://i.postimg.cc/zXd2mwhB/5-F9-F1-B54-8048-4-BC0-9972-42-FD8-D16-CE62-4-5005-c.jpg)](https://postimg.cc/rKrNxrQX)
 
+### Functionality Overview
+*  Simple password generation app implemented with python
+*  Prompts user to specify length of desired password
+*  Generates password with random characters with specified length
+
+***************************************************************************************
 ## [Contact-Book](./Contact-Book)
 --- In progress

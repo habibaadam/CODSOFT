@@ -18,10 +18,10 @@
 
 ## Functionality Overview
 ```bash
-*  Simple Calculator app for performing simple operations
-*  Prompts User to choose an operation(add, subtract, multiply or division)
-*  Prompts user for first and second digits
-*  Performs operation with the option to continue or to exit(yes/no)
+* Simple Calculator app for performing simple operations
+* Prompts User to choose an operation (add, subtract, multiply, or divide)
+* Prompts user for the first and second digits
+* Performs the operation with the option to continue or to exit (yes/no)
 ```
 
 ## [Rock-Paper-Scissors](./Rock-Paper-Scissors)
@@ -31,10 +31,10 @@
 
 ## Functionality Overview
 ```bash
-*  Implementation of the infamous rock-paper-scissors game
-*  User plays up against the computer as an opponent
-*  User Prompt between Rock, Paper Or Scissors(1, 2 or 3)
-*
+-  Implementation of the infamous rock-paper-scissors game
+-  User plays up against the computer as an opponent
+-  User Prompt between Rock, Paper Or Scissors(1, 2 or 3)
+
 
 ```
 

@@ -109,7 +109,7 @@ class ContactBook:
 
         # Matching contacts text
         self.matching_contacts_text = kint.Text(window)
-        self.matching_contacts_text.place(x=530, y=320, width=270, height=40)
+        self.matching_contacts_text.place(x=530, y=320, width=270, height=70)
 
 
         # Defining Functions for Buttons
@@ -207,8 +207,9 @@ class ContactBook:
                 if isinstance(contact[0], str) and isinstance(contact[2], (str, int)):
                     if search_term in contact[0].lower() or search_term in str(phone_str).lower():
                     # Insert the matching contact into the Treeview
+                        formatted_contact = f"Name: {contact[0]} {contact[1]}\nPhone: {contact[2]}\nEmail: {contact[3]}\n\n"
                         self.matching_contacts_text.insert(
-                            kint.END, f"{contact}\n")
+                            kint.END, formatted_contact)
                 else:
                     print("Invalid contact", contact)
 

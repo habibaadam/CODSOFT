@@ -17,6 +17,9 @@
 [![Screenshot-2023-12-27-at-11-22-40-PM.png](https://i.postimg.cc/909X3X8X/Screenshot-2023-12-27-at-11-22-40-PM.png)](https://postimg.cc/tnXGWbG8)
 
 ## Functionality Overview
+
+*  C
+
 ```bash
 * Simple Calculator app for performing simple operations
 * Prompts User to choose an operation (add, subtract, multiply, or divide)

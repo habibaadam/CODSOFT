@@ -151,18 +151,24 @@ class ContactBook:
             if not selected_contact:
                 tkinter.messagebox.showerror("Error", "Please select a contact to update")
             else:
-                """Delete existing details of contact"""
                 contact_details = self.contacts_tree.item(selected_contact)["values"]
                 self.first_name.delete(0, 'end')
                 self.second_name.delete(0, 'end')
                 self.phone.delete(0, 'end')
                 self.email.delete(0, 'end')
 
-                """Updating new contact details"""
+        # Populate entry fields with contact details
                 self.first_name.insert(0, contact_details[0])
                 self.second_name.insert(0, contact_details[1])
                 self.phone.insert(0, contact_details[2])
                 self.email.insert(0, contact_details[3])
+        # Update contact details in the Treeview
+                self.contacts_tree.item(selected_contact, values=(
+                    self.first_name.get(),
+                    self.second_name.get(),
+                    self.phone.get(),
+                    self.email.get()
+        ))
                 self.save_contacts()
 
         def clear_fields():

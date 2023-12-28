@@ -3,7 +3,7 @@
 ## [TO-DO-APP(GUI)](./To-Do-App)
 [![AEC0-E840-22-E0-4-ACE-BFCF-C89-A0639-A669.jpg](https://i.postimg.cc/zXPHY3G5/AEC0-E840-22-E0-4-ACE-BFCF-C89-A0639-A669.jpg)](https://postimg.cc/QH1dp87n)
 
-## Functionality Overview
+### Functionality Overview
 ```bash
 * Alloww users to add tasks through the entry column
 * All tasks can be seen on the listbox
@@ -16,15 +16,13 @@
 
 [![Screenshot-2023-12-27-at-11-22-40-PM.png](https://i.postimg.cc/909X3X8X/Screenshot-2023-12-27-at-11-22-40-PM.png)](https://postimg.cc/tnXGWbG8)
 
-## Functionality Overview
-
-*  C
+### Functionality Overview
 
 ```bash
-* Simple Calculator app for performing simple operations
-* Prompts User to choose an operation (add, subtract, multiply, or divide)
-* Prompts user for the first and second digits
-* Performs the operation with the option to continue or to exit (yes/no)
+- Simple Calculator app for performing simple operations
+- Prompts User to choose an operation (add, subtract, multiply, or divide)
+- Prompts user for the first and second digits
+- Performs the operation with the option to continue or to exit (yes/no)
 ```
 
 ## [Rock-Paper-Scissors](./Rock-Paper-Scissors)
@@ -32,7 +30,7 @@
 
 [![B7-EBFECD-9-CD6-4-DFB-BC59-C51-FDBB8659-B.jpg](https://i.postimg.cc/TwDv17rC/B7-EBFECD-9-CD6-4-DFB-BC59-C51-FDBB8659-B.jpg)](https://postimg.cc/vgbNSv2V)
 
-## Functionality Overview
+### Functionality Overview
 ```bash
 -  Implementation of the infamous rock-paper-scissors game
 -  User plays up against the computer as an opponent

@@ -12,6 +12,8 @@
 - An additional emoji drop down menu is added for user interactivity
 - Exiting gracefully out the to-do-app is provided through the exit button
 ```
+
+***************************************************************************************
 ## [Calculator](./Calculator)
 
 [![Screenshot-2023-12-27-at-11-22-40-PM.png](https://i.postimg.cc/909X3X8X/Screenshot-2023-12-27-at-11-22-40-PM.png)](https://postimg.cc/tnXGWbG8)
@@ -25,6 +27,7 @@
 - Performs the operation with the option to continue or to exit (yes/no)
 ```
 
+**************************************************************************************
 ## [Rock-Paper-Scissors](./Rock-Paper-Scissors)
 [![5-D5035-AA-8-AC3-4-A57-9852-D5-CA53435001.jpg](https://i.postimg.cc/xjm91C5n/5-D5035-AA-8-AC3-4-A57-9852-D5-CA53435001.jpg)](https://postimg.cc/JtRfTRS2)
 
@@ -35,10 +38,11 @@
 -  Implementation of the infamous rock-paper-scissors game
 -  User plays up against the computer as an opponent
 -  User Prompt between Rock, Paper Or Scissors(1, 2 or 3)
-
-
+-  Score tracking system in plce to track user and computer's scores
+   after each round(playing 3 times= 1 round)
+-  Option/prompt to continue another round or end the game is implemented
 ```
-
+***************************************************************************************
 ## [Password-Gen](./Password-Generator)
 [![5-F9-F1-B54-8048-4-BC0-9972-42-FD8-D16-CE62-4-5005-c.jpg](https://i.postimg.cc/zXd2mwhB/5-F9-F1-B54-8048-4-BC0-9972-42-FD8-D16-CE62-4-5005-c.jpg)](https://postimg.cc/rKrNxrQX)
 

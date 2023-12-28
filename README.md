@@ -38,9 +38,8 @@
 -  Implementation of the infamous rock-paper-scissors game
 -  User plays up against the computer as an opponent
 -  User Prompt between Rock, Paper Or Scissors(1, 2 or 3)
--  Score tracking system in plce to track user and computer's scores
--  after each round(playing 3 times= 1 round)
--  Option/prompt to continue another round or end the game is implemented
+-  Score tracking system in plce to track user and computer's scores after each round
+-  Prompt user to continue another round or end the game is implemented
 ```
 ***************************************************************************************
 

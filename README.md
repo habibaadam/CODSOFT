@@ -5,12 +5,12 @@
 
 ### Functionality Overview
 ```bash
-* Alloww users to add tasks through the entry column
-* All tasks can be seen on the listbox
-* Users can select tasks completed by choosing a task and tapping on mark button
-* Option to delete a task is available after completion
-* An additional emoji drop down menu is added for user interactivity
-* Exiting gracefully out the to-do-app is provided through the exit button
+- Alloww users to add tasks through the entry column
+- All tasks can be seen on the listbox
+- Users can select tasks completed by choosing a task and tapping on mark button
+- Option to delete a task is available after completion
+- An additional emoji drop down menu is added for user interactivity
+- Exiting gracefully out the to-do-app is provided through the exit button
 ```
 ## [Calculator](./Calculator)
 

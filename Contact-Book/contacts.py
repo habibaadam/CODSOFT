@@ -13,7 +13,7 @@ class ContactBook:
                 reader = csv.DictReader(file)
                 for row in reader:
                     self.contacts_tree.insert(parent="", index="end", values=(
-                        row["First Name"], row["Last Name"], row["Phone"], row["Email"]))
+                        str(row["First Name"]), str(row["Last Name"]), str(row["Phone"]), str(row["Email"])))
         except FileNotFoundError:
             pass
 
@@ -21,11 +21,7 @@ class ContactBook:
         with open("contacts.csv", "w", newline="") as file:
             column_names = ["First Name", "Last Name", "Phone", "Email"]
             writer = csv.DictWriter(file, fieldnames=column_names)
-
-            # Write header
             writer.writeheader()
-
-            # Write contacts
             for c_id in self.contacts_tree.get_children():
                 contact = self.contacts_tree.item(c_id)["values"]
                 writer.writerow({column_names[h]: contact[h] for h in range(len(column_names))})
@@ -38,8 +34,7 @@ class ContactBook:
         self.window.resizable(False, False)
         self.window.config(bg="black")
 
-
-# Frame For Asking Details
+       # Frame For Asking Details
         self.label_frame = kint.LabelFrame(
             window, text="Enter Contact Details", padx=15, pady=15)
         self.label_frame.grid(padx=15, pady=15)
@@ -76,8 +71,7 @@ class ContactBook:
             self.label_frame, textvariable=email_var, width=20)
         self.email.grid(row=3, column=1, padx=5, pady=5)
 
-
-       # Treeview to display contacts
+        # Treeview to display contacts
         self.contacts_tree = ttk.Treeview(self.window, columns=("First Name", "Last Name", "Phone", "Email"))
         self.contacts_tree.heading("#0", text=" Names")
         self.contacts_tree.heading("First Name", text="First Name")
@@ -94,7 +88,7 @@ class ContactBook:
             "First Name", "Last Name", "Phone", "Email")
         self.contacts_tree.place(x=370, y=20)
 
-
+        #Defining color for the treeview
         style = ttk.Style()
         style.configure("Treeview",
                         background="grey",
@@ -102,7 +96,7 @@ class ContactBook:
                         foreground="white",
                         bordercolor="grey")
 
-        # Scrollbar
+        # Scrollbar for treeview
         y_scrollbar = ttk.Scrollbar(
             self.window, orient="vertical", command=self.contacts_tree.yview)
         self.contacts_tree.configure(yscroll=y_scrollbar.set)
@@ -113,7 +107,12 @@ class ContactBook:
 
         self.read_from_csv()
 
-#Defining Functions for buttons
+        # Matching contacts text
+        self.matching_contacts_text = kint.Text(window)
+        self.matching_contacts_text.place(x=530, y=320, width=270, height=40)
+
+
+        # Defining Functions for Buttons
         def add_contact():
             """Adding Contacts"""
             first_name = self.first_name.get()
@@ -157,6 +156,18 @@ class ContactBook:
                 self.phone.delete(0, 'end')
                 self.email.delete(0, 'end')
 
+        def update_contact():
+            """Update selected contact"""
+            selected_contact = self.contacts_tree.selection()
+            if not selected_contact:
+                tkinter.messagebox.showerror("Error", "Please select a contact to update")
+            else:
+                contact_details = self.contacts_tree.item(selected_contact)["values"]
+                self.first_name.delete(0, 'end')
+                self.second_name.delete(0, 'end')
+                self.phone.delete(0, 'end')
+                self.email.delete(0, 'end')
+
         # Populate entry fields with contact details
                 self.first_name.insert(0, contact_details[0])
                 self.second_name.insert(0, contact_details[1])
@@ -178,7 +189,30 @@ class ContactBook:
             self.phone.delete(0, 'end')
             self.email.delete(0, 'end')
 
-# Frame For Buttons
+        def search_contact():
+            """Search contacts by name or phone number"""
+            search_term = self.search_var.get().lower()
+
+            self.matching_contacts_text.delete('1.0', kint.END)
+            # Clear the existing Treeview
+            self.contacts_tree.delete(*self.contacts_tree.get_children())
+            self.read_from_csv()
+            for c_id in self.contacts_tree.get_children():
+                contact = self.contacts_tree.item(c_id)["values"]
+                # debugging purposes
+                # print("Contact values:", contact)
+
+                phone_str = str(contact[2])
+
+                if isinstance(contact[0], str) and isinstance(contact[2], (str, int)):
+                    if search_term in contact[0].lower() or search_term in str(phone_str).lower():
+                    # Insert the matching contact into the Treeview
+                        self.matching_contacts_text.insert(
+                            kint.END, f"{contact}\n")
+                else:
+                    print("Invalid contact", contact)
+
+        # Frame For Buttons
         self.button_frame = kint.Frame(window, bg="grey")
         self.button_frame.grid(row=1, column=0, padx=15, pady=15, sticky="sw")
 
@@ -202,6 +236,16 @@ class ContactBook:
         self.clear_button = kint.Button(
             self.button_frame, text="Clear", width=13, bd=5, fg="black", command=clear_fields)
         self.clear_button.grid(row=2, column=0, padx=5, pady=5, sticky="sw")
+
+        # Search Bar
+        self.label_5 = kint.Button(self.window, text="Search Contact:",
+                                   command=search_contact, width=10, bd=5, fg="black", bg="grey")
+        self.label_5.place(x=370, y=265)
+
+        self.search_var = kint.StringVar()
+        self.search_entry = kint.Entry(
+            self.window, textvariable=self.search_var, width=40)
+        self.search_entry.place(x=505, y=270)
 
 """Creating my window"""
 def interface():
